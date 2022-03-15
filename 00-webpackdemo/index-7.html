@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 我们知道，在script标签中写js代码，或者使用src引入js文件时，默认不能使用module形式，即不能使用import导入文件，但是我们可以再script标签上加上type=module属性来改变方式。 -->
+  <script type="module"> 
+  
+    import add from './esm/add.js'
+    console.log(add(9,9))
+    // 使用http-server然后打开index-7.html
+    // p6
+
+  </script>
+</body>
+</html>
