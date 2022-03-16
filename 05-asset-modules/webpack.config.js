@@ -29,12 +29,18 @@ module.exports = {
 
     module:{
         rules:[
+            // asset/resource
             {
                 test:/\.png$/,
                 type:'asset/resource',
                 generator:{
-                    filename:'images/test.png'
+                    filename:'images/[contenthash][ext]'
                 }
+            },
+            // asset/inline
+            {
+                test:/\.svg$/,// /ed$/仅匹配处于字符串结尾的 ed，比如 opened、closed，而类似于 edge、bedroom 这些虽然包含 ed，但是不在结尾的，则会匹配失败。
+                type:'asset/inline'
             }
         ]
     }

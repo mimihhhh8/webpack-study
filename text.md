@@ -131,3 +131,5 @@ ext:表示扩展名
       filename:'images/[contenthash][ext]'
   }
 ```
+
+# p24 inline资源(05-asset-modules)
