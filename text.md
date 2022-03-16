@@ -96,4 +96,38 @@ npx webpack --watch 实时监测js的变化（保存代码之后刷新页面，�
   （3）asset source 导出资源的源代码，之前通过raw-loader实现
   （4）asset 在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用 url-loader，并且配置资源体积限制实现。
 
-# p23 resource资源
+# p23 resource资源(05-asset-modules)
+- 1、配置webpack.config.json
+```json
+    module:{
+        rules:[
+            {
+                test:/\.png$/,
+                type:'asset/resource'
+            }
+        ]
+    }
+```
+- 2、src的index.js中
+```js
+import imgsrc from './assets/1.png'
+
+const img = document.createElement('img')
+img.src = imgsrc
+document.body.appendChild(img)
+```
+
+- 3、打包 npx webpack  在dist中出现自定义命名的图片
+- 4、尝试在浏览器预览 执行npx webpack-dev-server
+
+- 5、指定图片打包的路径 (生成资源的路径和名称)
+-  方法一：assetModuleFilename:'images/[contenthash][ext]' ('images/test.png')
+不可能所有的资源叫做test.png
+contenthash:根据文件的内容生成哈希的字符
+ext:表示扩展名
+-  方法二 (generator优先级比assetModuleFilename高)
+```json
+ generator:{
+      filename:'images/[contenthash][ext]'
+  }
+```
