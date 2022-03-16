@@ -34,7 +34,7 @@
  b、项目目录下安装：npm install webpack webpack-cli --save-dev
 
 
-# p10运行webpack
+# p10运行webpack 
 - 1、webpack.config.js什么都不配置的情况下，运行npm webpack,会自动生成dist文件夹，并默认生成main.js文件
  ## 学习进度（https://www.bilibili.com/video/BV1YU4y1g745?p=9&spm_id_from=pageDriver） p9  
 
@@ -42,3 +42,33 @@
 
  # p13 什么是插件 plugins
  # p14 html-webpack-plugin插件学习
+ - 1、
+  ```js
+       plugins:[
+        new HtmlWbpackPlugins()//完成index.html,在dist文件夹中生成index.html
+    ]
+  ```
+
+- 2、添加配置指定引入打包文件的位置
+```js
+     plugins:[
+        new HtmlWbpackPlugins({
+            template:'./index.html',
+            filename:'app.html',//npx webpack打包之后dist文件夹中生成的html文件叫做index.html
+            inject:'body '//指定script标签引入的bundle.js在body中
+        })//让外部的index.html和打包的html关联起来，
+    ]
+```
+
+# p15 如何清理dist
+```json
+    output: {
+        path: path.resolve(__dirname, './dist'),//获取到当前文件所在的路径
+        filename: 'bundle.js',
+        clean:true//清理打包之前的文件
+    },
+```
+
+# p16 搭建开发环境
+- 1、待解决的问题：
+  （1）通过复制dist目录下的app.html的完整的物理路径，然后粘贴到浏览器的地址栏访问页面，更新代码需手动再打包

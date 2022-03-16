@@ -16,7 +16,7 @@
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction helloword(){\n  console.log('hello woed!')\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (helloword);\n\n//# sourceURL=webpack:///./src/hello-word.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction helloword(){\n  console.log('hello word!')\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (helloword);\n\n//# sourceURL=webpack:///./src/hello-word.js?");
 
 /***/ }),
 
