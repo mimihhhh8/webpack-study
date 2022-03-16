@@ -134,3 +134,5 @@ ext:表示扩展名
 
 # p24 inline资源(05-asset-modules)
 # p25 source资源(05-asset-modules)
+
+# 26 asset 通用资源(05-asset-modules)

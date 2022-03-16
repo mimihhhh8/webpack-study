@@ -3,6 +3,7 @@ import helloword from './hello-word'
 import imgsrc1 from './assets/1.png'
 import imgsrc2 from './assets/duck.svg'
 import exampleTxt from './assets/example.txt'
+import jpgImg from './assets/rose.jpg'
 helloword()
 
 // asset/resource
@@ -22,3 +23,8 @@ const block = document.createElement('div')
 block.style.cssText="width:200px;height:200px;background:pink"
 block.textContent = exampleTxt
 document.body.appendChild(block)
+
+// asset
+const jpgDom = document.createElement('img')
+jpgDom.src = jpgImg
+document.body.appendChild(jpgDom)
