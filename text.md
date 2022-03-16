@@ -72,3 +72,19 @@
 # p16 搭建开发环境
 - 1、待解决的问题：
   （1）通过复制dist目录下的app.html的完整的物理路径，然后粘贴到浏览器的地址栏访问页面，更新代码需手动再打包
+
+- 2、devtool:'inline-source-map',//没有此配置，代码书写错误打包后报错是在打包的文件中提示，添加此配置之后会报错会定位到原文件代码出错的位置
+
+# p19 使用watch mode
+npx webpack --watch 实时监测js的变化（保存代码之后刷新页面，内容已经被监测到）
+
+# p20 使用webpack-dev-server(实时重新加载页面的功能，启动之后在目标文件夹中是看不到编译后的文件，实时编译后的文件都保存在了内存当中)
+- 1、npm install webpack-dev-server -D
+- 2、配置 
+```json
+  devServer:{
+        static:'./dist'
+    }
+```
+- 3、启动 npx webpack-dev-server 
+- 4、打开页面 http://localhost:8080/ 
