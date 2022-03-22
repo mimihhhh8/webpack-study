@@ -14,7 +14,7 @@ module.exports = {
         // assetModuleFilename:'images/[contenthash][ext]'
     },
 
-    mode:'production',//设置为开发模式
+    mode:'development',//设置为开发模式
     devtool:'inline-source-map',//没有此配置，代码书写错误打包后报错是在打包的文件中提示，添加此配置之后会报错会定位到原文件代码出错的位置
     plugins:[
         new HtmlWbpackPlugins({
@@ -24,7 +24,7 @@ module.exports = {
         }),
 
         new MiniCssExtractPlugin({
-            filename:'styles[contenthash].css'//自定义打包的css名称，默认main.css
+            filename:'styles/[contenthash].css'//自定义打包的css名称，默认main.css
         })
     ],
 
@@ -70,7 +70,7 @@ module.exports = {
 
     optimization:{
         minimizer:[
-            new CssMinimizerPlugin() //mode值改为production
+            new CssMinimizerPlugin()
         ]
     }
 

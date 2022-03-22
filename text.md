@@ -201,3 +201,12 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
         ]
     }
 ```
+
+# p31 在css加载images图像(.block-bg)
+```css
+/* p31 在css加载images图像 */
+.block-bg{
+  background-image: url(./assets/duck.svg) !important;
+}
+```
+打包后可以在css压缩文件中看到被压缩的images图像

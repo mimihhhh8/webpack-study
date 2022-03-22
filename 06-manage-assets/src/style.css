@@ -1,3 +1,8 @@
 .hello{
   color: red;
 }
+
+/* p31 在css加载images图像 */
+.block-bg{
+  background-image: url(./assets/duck.svg) !important;
+}
