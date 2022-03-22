@@ -1,5 +1,7 @@
 const path = require('path')
 const HtmlWbpackPlugins = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
@@ -12,14 +14,18 @@ module.exports = {
         // assetModuleFilename:'images/[contenthash][ext]'
     },
 
-    mode:'development',//设置为开发模式
+    mode:'production',//设置为开发模式
     devtool:'inline-source-map',//没有此配置，代码书写错误打包后报错是在打包的文件中提示，添加此配置之后会报错会定位到原文件代码出错的位置
     plugins:[
         new HtmlWbpackPlugins({
             template:'./index.html',
             filename:'app.html',
             inject:'body'
-        }) 
+        }),
+
+        new MiniCssExtractPlugin({
+            filename:'styles[contenthash].css'//自定义打包的css名称，默认main.css
+        })
     ],
 
     // npm install webpack-dev-server -D
@@ -52,13 +58,19 @@ module.exports = {
                 test:/\.jpg$/,
                 type:'asset'
             },
-
-            // p29
+            
             {
                 test:/\.(css|less)$/,
-                use:['style-loader','css-loader','less-loader']//使用css-loader在打包css的时候不会报错，使用style-loader使得css在页面生效(顺序：从后往前开始加载 )
+                // use:['style-loader','css-loader','less-loader'],//p29 使用css-loader在打包css的时候不会报错，使用style-loader使得css在页面生效(顺序：从后往前开始加载 )
+                use:[MiniCssExtractPlugin.loader,'css-loader','less-loader'] //p30 单独抽离css style-loader无效  打包后在dist文件夹中生成main.css文件，将两个css文件合并到了一个文件中
             },
 
+        ]
+    },
+
+    optimization:{
+        minimizer:[
+            new CssMinimizerPlugin() //mode值改为production
         ]
     }
 

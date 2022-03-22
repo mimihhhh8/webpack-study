@@ -157,3 +157,47 @@ plugin是插件，它是对webpack本身的扩展，是一个扩展器。
  npm install css-loader  -D
  npm install style-loader  -D
  npm install less-loader less -D   less-loader需要less 去解析
+ ```json
+   {
+        test:/\.(css|less)$/,
+        use:['style-loader','css-loader','less-loader'],//p29 使用css-loader在打包css的时候不会报错，使用style-loader使得css在页面生效(顺序：从后往前开始加载 )
+    },
+ ```
+ # p30 抽离和压缩css
+ - 在本地开发环境安装
+ npm install mini-css-extract-plugin -D (基于webpack5构建的)
+
+
+ - 引入：
+ ```js
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+ ```
+ - 实例化：
+ ```json
+     plugins:[
+        new MiniCssExtractPlugin({
+            filename:'styles[contenthash].css'//自定义打包的css名称，默认main.css
+        })
+    ],
+ ```
+  - 配置
+ ```json
+   {
+        test:/\.(css|less)$/,
+        use:[MiniCssExtractPlugin.loader,'css-loader','less-loader'] //p30 单独抽离css style-loader无效  打包后在dist文件夹中生成main.css文件，将两个css文件合并到了一个文件中
+    },
+ ```
+- 压缩文件插件
+npm install css-minimizer-webpack-plugin -D
+- 引入
+```js
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+```
+- 配置
+```json
+    optimization:{
+        minimizer:[
+            new CssMinimizerPlugin()
+        ]
+    }
+```
