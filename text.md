@@ -136,3 +136,24 @@ ext:表示扩展名
 # p25 source资源(05-asset-modules)
 
 # 26 asset 通用资源(05-asset-modules)
+
+# p28 什么是loader
+- 1、loader使用过程
+步骤一：通过npm安装需要使用的loader
+步骤二：在webpack.config.js中的modules关键字下进行配置
+
+大部分loader我们都可以在webpack的官网中找到，并且学习对应的用法。
+
+- 2、plugin是什么
+plugin是插件的意思，通常是用于对某个现有的架构进行扩展。
+webpack中的插件，就是对webpack现有功能的各种扩展，比如打包优化，文件压缩等等。
+
+- 3、loader和plugin区别
+loader主要用于转换某些类型的模块，它是一个转换器。
+plugin是插件，它是对webpack本身的扩展，是一个扩展器。
+
+
+# p29 加载css
+ npm install css-loader  -D
+ npm install style-loader  -D
+ npm install less-loader less -D   less-loader需要less 去解析
