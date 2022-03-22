@@ -28,7 +28,7 @@
 # p9安装webpack
 - 1、安装node  node -v
 - 2、node安装成功之后npm会安装成功  npm -v
-- 3、pwd 查看当前的工作目录
+- 3、pwd 查看当前的工作目录(print work directory)
 - 4、安装webpack 
  a、全局安装(不推荐)：npm install webpack webpack-cli --global  可以在任何目录下执行webpack; webpack -v
  b、项目目录下安装：npm install webpack webpack-cli --save-dev
