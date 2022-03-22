@@ -65,6 +65,12 @@ module.exports = {
                 use:[MiniCssExtractPlugin.loader,'css-loader','less-loader'] //p30 单独抽离css style-loader无效  打包后在dist文件夹中生成main.css文件，将两个css文件合并到了一个文件中
             },
 
+            //p32
+            {
+                test:/\.(woff|woff2|eot|ttf|otf)$/i,
+                type:'asset/source'
+            }
+
         ]
     },
 

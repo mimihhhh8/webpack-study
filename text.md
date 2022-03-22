@@ -210,3 +210,5 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 }
 ```
 打包后可以在css压缩文件中看到被压缩的images图像
+
+# p32 加载fonts字体
